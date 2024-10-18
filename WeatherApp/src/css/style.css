@@ -23,7 +23,7 @@ body{
    overflow: hidden;
    border-radius: 18px;
    font-family: 'Roboto', sans-serif;
-   transition: 0. ease-out;
+   transition: 0.6s ease-out;
 }
 
 .search-box{
@@ -104,13 +104,13 @@ body{
 }
 
 .weather-details{
-    width: 1000%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
 }
 
-.weather-details .humidity .weather-details .wind{
+.weather-details .humidity, .weather-details .wind{
     display: flex;
     align-items: center;
     width: 50%;
@@ -119,11 +119,11 @@ body{
 
 .weather-details .humidity{
     padding-left: 20px;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .weather-details .wind{
-    padding-left: 20px;
+    padding-right: 20px;
     justify-content: flex-end;
 }
 
@@ -142,7 +142,7 @@ body{
 
 .weather-details p{
     color: #06283d;
-    font-size: 22px;
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -172,7 +172,7 @@ body{
     opacity: 0; 
 }
 
-.fade-in{
+.fadeIn{
     animation: 0.5s fadeIn forwards;
     animation-delay: 0.5s;
 }
