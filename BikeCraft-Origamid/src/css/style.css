@@ -1,41 +1,12 @@
-body{
-    margin: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-}
+/*utilidades*/
+@import "./utilidades/componentes.css";
+@import "./utilidades/tipografia.css";
+@import "./utilidades/cores.css";
 
-ul{
-    margin: 0px;
-    padding: 0px;
-    list-style:none;
-}
+/*Gerais*/
+@import "./global/header.css";
+@import "./global/global.css";
 
-a{
-    text-decoration: none;
-}
+/*Home*/
+@import "./home/introducao.css";
 
-.header-bg{
-    background-color: #000;
-}
-
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.header-menu{
-    display: flex;
-    gap: 40px;
-}
-
-.header-menu a{
-    color: #fff;
-    display: inline-block;
-    padding: 16px 0px;
-    font-size: 18px;
-}

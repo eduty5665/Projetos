@@ -1,0 +1,6 @@
+﻿
+Class wdCadCliente
+
+    
+
+End Class
