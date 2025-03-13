@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="#547a7d">
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="{DynamicResource cor-titulo}">
             <Label x:Name="Titlelbl" Content="- Cadastro de Produtos" HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="22" Foreground="White"/>
         </Grid>
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
@@ -103,7 +103,7 @@
             </DataGrid>
 
         </Grid>
-        <Grid Grid.Row="4" HorizontalAlignment="Stretch" Background="#c5cd39">
+        <Grid Grid.Row="4" HorizontalAlignment="Stretch" Background="{DynamicResource cor-rodape}">
             <Grid Grid.Row="0" HorizontalAlignment="Right">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>

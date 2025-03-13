@@ -11,16 +11,22 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Background="#FF537A7D">
+            <Grid Grid.Row="0" Background="{DynamicResource cor-bottomMenu}">
                 <Label Name="ProdutoMnu" Content="Cadastro de Produtos" Foreground="White" FontWeight="ExtraBold" FontFamily="Calibri" FontSize="16" Cursor="Hand" />
             </Grid>
-            <Grid Grid.Row="1" Background="#FF537A7D">
+            <Grid Grid.Row="1" Background="{DynamicResource cor-bottomMenu}">
                 <Label Name="ClienteMnu" Content="Cadastro de Clientes" Foreground="White" FontWeight="ExtraBold" FontFamily="Calibri" FontSize="16" Cursor="Hand" />
             </Grid>
+            <Grid Grid.Row="2" Background="{DynamicResource cor-bottomMenu}">
+                <Label Name="VeiculosMnu" Content="Cadastro de Veiculos" Foreground="White" FontWeight="ExtraBold" FontFamily="Calibri" FontSize="16" Cursor="Hand" />
             </Grid>
+        </Grid>
         <Grid Grid.Column="1">
-
+            <TabControl Name="Menutb">
+                
+            </TabControl>
         </Grid>
     </Grid>
 </Window>

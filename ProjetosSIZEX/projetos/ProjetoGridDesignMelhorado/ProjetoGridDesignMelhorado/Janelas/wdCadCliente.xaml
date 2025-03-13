@@ -11,7 +11,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="#547a7d">
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="{DynamicResource cor-titulo}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -161,14 +161,14 @@
                                     <TextBox x:Name="OBSConttxt" HorizontalAlignment="Stretch" Margin="5,23,5,-0" TextWrapping="Wrap" TabIndex="13" BorderBrush="#FF7189CF"/>
                                 </Grid>
                                 <Grid Grid.Column="3">
-                                    <Button x:Name="MaisBtn" Content="+" HorizontalAlignment="Stretch" Margin="5,15,0,0" Width="20" Height="20" Background="#FF5DFF00" Foreground="White" BorderBrush="#FF5DFF00" FontFamily="Calibri" FontWeight="ExtraBold" TabIndex="14"/>
+                                    <Button x:Name="MaisBtn" Content="+" HorizontalAlignment="Stretch" Margin="5,15,0,0" Width="20" Height="20" Background="{DynamicResource cor-bottomAdd}" Foreground="White" BorderBrush="{DynamicResource cor-bottomAdd}" FontFamily="Calibri" FontWeight="ExtraBold" TabIndex="14"/>
                                 </Grid>
                                 <Grid Grid.Column="4">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="4*"/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <Button x:Name="MenosBtn" Content="-" HorizontalAlignment="Stretch" Margin="10,18,5,2" Width="20" Height="20" RenderTransformOrigin="0.25,2.2" Background="Red" Foreground="White" BorderBrush="Red" FontWeight="ExtraBold" FontFamily="Calibri" Grid.RowSpan="2" TabIndex="15"/>
+                                    <Button x:Name="MenosBtn" Content="-" HorizontalAlignment="Stretch" Margin="10,18,5,2" Width="20" Height="20" RenderTransformOrigin="0.25,2.2" Background="{DynamicResource cor-bottomLess}" Foreground="White" BorderBrush="{DynamicResource cor-bottomLess}" FontWeight="ExtraBold" FontFamily="Calibri" Grid.RowSpan="2" TabIndex="15"/>
                                 </Grid>
                             </Grid>
                             <Grid Grid.Row="4">
@@ -198,7 +198,7 @@
                 </TabItem>
             </TabControl>
         </Grid>
-        <Grid Grid.Row="6" HorizontalAlignment="Stretch" Background="#c5cd39">
+        <Grid Grid.Row="6" HorizontalAlignment="Stretch" Background="{DynamicResource cor-rodape}">
             <Grid Grid.Row="0" HorizontalAlignment="Right">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>

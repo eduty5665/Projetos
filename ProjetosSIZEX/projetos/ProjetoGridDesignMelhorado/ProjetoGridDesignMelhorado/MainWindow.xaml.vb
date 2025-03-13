@@ -9,4 +9,12 @@
         Dim wd As New wdCadCliente
         wd.ShowDialog()
     End Sub
+
+    Private Sub VeiculosMnu_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles VeiculosMnu.MouseLeftButtonDown
+        Dim uc As New ucCadAutomovel
+        Dim tb As New TabItem
+        tb.Content = uc
+        tb.Header = "Veículos"
+        Menutb.Items.Add(tb)
+    End Sub
 End Class

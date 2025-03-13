@@ -11,7 +11,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="#547a7d">
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="{DynamicResource cor-titulo}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40*"/>
                 <ColumnDefinition Width="45*"/>
@@ -101,15 +101,7 @@
                                 </ComboBox>
                             </Grid>
                         </Grid>
-                        <Grid Grid.Row="2" Margin="0,5,0,5">
-                            <Grid.Background>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#FF68CBD3" Offset="1"/>
-                                    <GradientStop Color="#FF439BA2" Offset="0.519"/>
-                                    <GradientStop Color="#FF374F51"/>
-                                </LinearGradientBrush>
-                            </Grid.Background>
-                        </Grid>
+                        <Grid Grid.Row="2" Margin="0,5,0,5" Background="{DynamicResource cor-barra}"/>  
                         <Grid Grid.Row="3" Grid.ColumnSpan="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1.5*"/>
@@ -145,14 +137,14 @@
                                 <TextBox x:Name="ValorTottxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="10" BorderBrush="#FF7189CF" TextAlignment="Right"/>
                             </Grid>
                             <Grid Grid.Column="4">
-                                <Button x:Name="MaisBtn" Content="+" HorizontalAlignment="Stretch" Margin="5,15,0,0" Width="20" Height="20" Background="#FF5DFF00" Foreground="White" BorderBrush="#FF5DFF00" FontFamily="Calibri" FontWeight="ExtraBold" TabIndex="11"/>
+                                <Button x:Name="MaisBtn" Content="+" HorizontalAlignment="Stretch" Margin="5,15,0,0" Width="20" Height="20" Background="{DynamicResource cor-bottomAdd}" Foreground="White" BorderBrush="{DynamicResource cor-bottomAdd}" FontFamily="Calibri" FontWeight="ExtraBold" TabIndex="11"/>
                             </Grid>
                             <Grid Grid.Column="5">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="4*"/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <Button x:Name="MenosBtn" Content="-" HorizontalAlignment="Stretch" Margin="10,15,5,0" Width="20" Height="20" RenderTransformOrigin="0.25,2.2" Background="Red" Foreground="White" BorderBrush="Red" FontWeight="ExtraBold" FontFamily="Calibri" Grid.RowSpan="2" TabIndex="12"/>
+                                <Button x:Name="MenosBtn" Content="-" HorizontalAlignment="Stretch" Margin="10,15,5,0" Width="20" Height="20" RenderTransformOrigin="0.25,2.2" Background="{DynamicResource cor-bottomLess}" Foreground="White" BorderBrush="{DynamicResource cor-bottomLess}" FontWeight="ExtraBold" FontFamily="Calibri" Grid.RowSpan="2" TabIndex="12"/>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="4">
