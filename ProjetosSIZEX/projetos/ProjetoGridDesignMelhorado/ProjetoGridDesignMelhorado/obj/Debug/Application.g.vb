@@ -59,10 +59,6 @@ Partial Public Class Application
         #End ExternalSource
         Dim resourceLocater As System.Uri = New System.Uri("/ProjetoGridDesignMelhorado;component/application.xaml", System.UriKind.Relative)
         
-        #ExternalSource("..\..\Application.xaml",1)
-        System.Windows.Application.LoadComponent(Me, resourceLocater)
-        
-        #End ExternalSource
     End Sub
     
     '''<summary>

@@ -4,6 +4,7 @@
     Title="Cadastro de Produtos" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
         <Color x:Key="BlueSizex">#FF537A7D</Color>
+        <CollectionViewSource x:Key="ProdutosViewSource" Source="{Binding ExibirProd}"/>
     </Window.Resources>
     <Grid Background="Gainsboro">
         <Grid.RowDefinitions>
@@ -25,7 +26,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Label x:Name="CodigoLbl" Content="Código: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                <TextBox x:Name="Codigotxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="0" BorderBrush="#FF7189CF"/>
+                <TextBox x:Name="Codigotxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="0" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
             </Grid>
             <Grid Grid.Column="1">
                 <Label x:Name="DescLbl" Content="Descrição: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
@@ -64,41 +65,41 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Label x:Name="Grupolbl" Content="Grupo: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                <TextBox x:Name="Grupotxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="3" CharacterCasing="Upper" BorderBrush="#FF7189CF"/>
+                <TextBox x:Name="Grupotxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="3" CharacterCasing="Upper" BorderBrush="#FF7189CF"/>
             </Grid>
             <Grid Grid.Column="1">
                 <Label x:Name="Tipolbl" Content="Tipo: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
                 <ComboBox x:Name="Tipocmb" HorizontalAlignment="Stretch" Margin="5,23,-0,0" FontFamily="Calibri" FontSize="14" TabIndex="4" BorderBrush="#FF7189CF">
-                    <ComboBoxItem Content="Materia Prima"/>
-                    <ComboBoxItem Content="Acabado"/>
-                    <ComboBoxItem Content="Embalagem"/>
-                    <ComboBoxItem Content="Insumo"/>
+                    <ComboBoxItem Content="MATERIA PRIMA"/>
+                    <ComboBoxItem Content="ACABADO"/>
+                    <ComboBoxItem Content="EMBALAGEM"/>
+                    <ComboBoxItem Content="INSUMO"/>
                 </ComboBox>
             </Grid>
             <Grid Grid.Column="2">
                 <Label x:Name="Custolbl" Content="Custo: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                <TextBox x:Name="Custotxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="5" BorderBrush="#FF7189CF"/>
+                <TextBox x:Name="Custotxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="5" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
             </Grid>
             <Grid Grid.Column="3">
                 <Label x:Name="Margemlbl" Content="Margem: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                <TextBox x:Name="Margemtxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="6" BorderBrush="#FF7189CF"/>
+                <TextBox x:Name="Margemtxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="6" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
             </Grid>
             <Grid Grid.Column="4">
                 <Label x:Name="Precolbl" Content="Preço: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                <TextBox x:Name="Precotxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="7" BorderBrush="#FF7189CF"/>
+                <TextBox x:Name="Precotxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="7" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
             </Grid>
             <Grid Grid.Column="5">
-                <CheckBox Content="INATIVO" Margin="5,25,5,0" FontWeight="Bold"/>
+                <CheckBox x:Name="Statuschk" Content="INATIVO" Margin="5,25,5,0" FontWeight="Bold"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="3">
-            <DataGrid HorizontalAlignment="Stretch" Margin="5,5,5,5">
+            <DataGrid HorizontalAlignment="Stretch" Margin="5,5,5,5" ItemsSource="{Binding Source={StaticResource ProdutosViewSource}}"  AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Código" Width="60"/>
-                    <DataGridTextColumn Header="Descrição do Produto" Width="*"/>
-                    <DataGridTextColumn Header="Grupo" Width="150"/>
-                    <DataGridTextColumn Header="Custo" Width="80"/>
-                    <DataGridTextColumn Header="Preço" Width="80"/>
+                    <DataGridTextColumn Header="Código" Width="60" Binding="{Binding Codigo}"/>
+                    <DataGridTextColumn Header="Descrição do Produto" Width="*" Binding="{Binding Descricao}"/>
+                    <DataGridTextColumn Header="Grupo" Width="150" Binding="{Binding Grupo}"/>
+                    <DataGridTextColumn Header="Custo" Width="80" Binding="{Binding Custo}"/>
+                    <DataGridTextColumn Header="Preço" Width="80" Binding="{Binding Preco}"/>
                 </DataGrid.Columns>
             </DataGrid>
 

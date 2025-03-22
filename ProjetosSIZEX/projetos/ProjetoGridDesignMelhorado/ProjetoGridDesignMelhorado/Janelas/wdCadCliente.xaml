@@ -4,6 +4,8 @@
     Title="Cadastro de Produtos" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded_1">
     <Window.Resources>
         <Color x:Key="BlueSizex">#FF537A7D</Color>
+        <CollectionViewSource x:Key="ClienteContatosViewSource" Source="{Binding ClienteContatos}"/>
+        <CollectionViewSource x:Key="ExibirClienteViewSource" Source="{Binding Cliente}"/>
     </Window.Resources>
     <Grid Background="Gainsboro">
         <Grid.RowDefinitions>
@@ -25,7 +27,7 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
-            <TabControl>
+            <TabControl x:Name="ClientesDataGrid">
                 <TabItem Name="CadTB" Header="Cadastro">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -45,14 +47,14 @@
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0" Grid.ColumnSpan="2">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="150"/>
-                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
                                     <Label x:Name="CPFLbl" Content="CPF: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                    <TextBox x:Name="CPFtxt" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="1" BorderBrush="#FF7189CF" TextAlignment="Right"/>
+                                    <TextBox x:Name="CPFtxt" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="1" BorderBrush="#FF7189CF" TextAlignment="Right" CharacterCasing="Upper"/>
                                 </Grid>
                                 <Grid Grid.Column="1">
                                     <Label x:Name="RGLbl" Content="RG: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
@@ -63,7 +65,7 @@
                                     <TextBox x:Name="Nometxt" HorizontalAlignment="Stretch" Margin="5,23,0,0" TextWrapping="Wrap" TabIndex="3" CharacterCasing="Upper" BorderBrush="#FF7189CF"/>
                                 </Grid>
                                 <Grid Grid.Column="3">
-                                    <CheckBox Content="INATIVO" Margin="5,20,5,0" FontWeight="Bold" IsTabStop="False"/>
+                                    <CheckBox x:Name="Statuschk" Content="INATIVO" Margin="5,20,5,0" FontWeight="Bold" IsTabStop="False"/>
                                 </Grid>
                             </Grid>
                             <Grid Grid.Row="1" Grid.ColumnSpan="2">
@@ -82,7 +84,7 @@
                                 </Grid>
                                 <Grid Grid.Column="2">
                                     <Label x:Name="BairroEndlbl" Content="Bairro: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14" Height="41" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="BairroEndtxt" HorizontalAlignment="Stretch" Margin="5,23,5,-0" TextWrapping="Wrap" TabIndex="6" BorderBrush="#FF7189CF"/>
+                                    <TextBox x:Name="BairroEndtxt" HorizontalAlignment="Stretch" Margin="5,23,5,-0" TextWrapping="Wrap" TabIndex="6" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
                                 </Grid>
                             </Grid>
                             <Grid Grid.Row="2" Grid.ColumnSpan="2">
@@ -99,41 +101,41 @@
                                 <Grid Grid.Column="1">
                                     <Label x:Name="EstEndlbl" Content="Estado: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
                                     <ComboBox x:Name="EstEndcmb" HorizontalAlignment="Stretch" Margin="5,23,-0,0" FontFamily="Calibri" FontSize="14" TabIndex="8" BorderBrush="#FF7189CF">
-                                        <ComboBoxItem Content="Acre (AC)"/>
-                                        <ComboBoxItem Content="Alagoas (AL)"/>
-                                        <ComboBoxItem Content="Amapá (AP)"/>
-                                        <ComboBoxItem Content="Amazonas (AM)"/>
-                                        <ComboBoxItem Content="Bahia (BA)"/>
-                                        <ComboBoxItem Content="Ceará (CE)"/>
-                                        <ComboBoxItem Content="Espírito Santo (ES)"/>
-                                        <ComboBoxItem Content="Goiás (GO)"/>
-                                        <ComboBoxItem Content="Maranhão (MA)"/>
-                                        <ComboBoxItem Content="Mato Grosso (MT)"/>
-                                        <ComboBoxItem Content="Mato Grosso do Sul (MS)"/>
-                                        <ComboBoxItem Content="Minas Gerais (MG)"/>
-                                        <ComboBoxItem Content="Pará (PA)"/>
-                                        <ComboBoxItem Content="Paraíba (PB)"/>
-                                        <ComboBoxItem Content="Paraná (PR)"/>
-                                        <ComboBoxItem Content="Pernambuco (PE)"/>
-                                        <ComboBoxItem Content="Piauí (PI)"/>
-                                        <ComboBoxItem Content="Rio de Janeiro (RJ)"/>
-                                        <ComboBoxItem Content="Rio Grande do Norte (RN)"/>
-                                        <ComboBoxItem Content="Rio Grande do Sul (RS)"/>
-                                        <ComboBoxItem Content="Rondônia (RO)"/>
-                                        <ComboBoxItem Content="Roraima (RR)"/>
-                                        <ComboBoxItem Content="Santa Catarina (SC)"/>
-                                        <ComboBoxItem Content="São Paulo (SP)"/>
-                                        <ComboBoxItem Content="Sergipe (SE)"/>
-                                        <ComboBoxItem Content="Tocantins (TO)"/>
+                                        <ComboBoxItem Content="AC"/>
+                                        <ComboBoxItem Content="AL"/>
+                                        <ComboBoxItem Content="AP"/>
+                                        <ComboBoxItem Content="AM"/>
+                                        <ComboBoxItem Content="BA"/>
+                                        <ComboBoxItem Content="CE"/>
+                                        <ComboBoxItem Content="ES"/>
+                                        <ComboBoxItem Content="GO"/>
+                                        <ComboBoxItem Content="MA"/>
+                                        <ComboBoxItem Content="MT"/>
+                                        <ComboBoxItem Content="MS"/>
+                                        <ComboBoxItem Content="MG"/>
+                                        <ComboBoxItem Content="PA"/>
+                                        <ComboBoxItem Content="PB"/>
+                                        <ComboBoxItem Content="PR"/>
+                                        <ComboBoxItem Content="PE"/>
+                                        <ComboBoxItem Content="PI"/>
+                                        <ComboBoxItem Content="RJ"/>
+                                        <ComboBoxItem Content="RN"/>
+                                        <ComboBoxItem Content="RS"/>
+                                        <ComboBoxItem Content="RO"/>
+                                        <ComboBoxItem Content="RR"/>
+                                        <ComboBoxItem Content="SC"/>
+                                        <ComboBoxItem Content="SP"/>
+                                        <ComboBoxItem Content="SE"/>
+                                        <ComboBoxItem Content="TO"/>
                                     </ComboBox>
                                 </Grid>
                                 <Grid Grid.Column="2">
                                     <Label x:Name="CEPEndlbl" Content="CEP: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                    <TextBox x:Name="CEPEndtxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="9" BorderBrush="#FF7189CF"/>
+                                    <TextBox x:Name="CEPEndtxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TextAlignment="Right" TabIndex="9" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
                                 </Grid>
                                 <Grid Grid.Column="3">
                                     <Label x:Name="CompEndlbl" Content="Complemento: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                    <TextBox x:Name="CompEndtxt" HorizontalAlignment="Stretch" Margin="5,23,5,-0" TextWrapping="Wrap" TabIndex="10" BorderBrush="#FF7189CF"/>
+                                    <TextBox x:Name="CompEndtxt" HorizontalAlignment="Stretch" Margin="5,23,5,-0" TextWrapping="Wrap" TabIndex="10" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
                                 </Grid>
                             </Grid>
                             <Grid Grid.Row="3" Grid.ColumnSpan="2">
@@ -147,9 +149,9 @@
                                 <Grid Grid.Column="0">
                                     <Label x:Name="TipoContlbl" Content="Tipo: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
                                     <ComboBox x:Name="TipoContcmb" HorizontalAlignment="Stretch" Margin="5,23,-0,0" FontFamily="Calibri" FontSize="14" TabIndex="11" BorderBrush="#FF7189CF">
-                                        <ComboBoxItem Content="Email"/>
-                                        <ComboBoxItem Content="Celular"/>
-                                        <ComboBoxItem Content="Telefone"/>
+                                        <ComboBoxItem Content="EMAIL"/>
+                                        <ComboBoxItem Content="CELULAR"/>
+                                        <ComboBoxItem Content="TELEFONE"/>
                                     </ComboBox>
                                 </Grid>
                                 <Grid Grid.Column="1">
@@ -158,7 +160,7 @@
                                 </Grid>
                                 <Grid Grid.Column="2">
                                     <Label x:Name="OBSContlbl" Content="Observação: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                    <TextBox x:Name="OBSConttxt" HorizontalAlignment="Stretch" Margin="5,23,5,-0" TextWrapping="Wrap" TabIndex="13" BorderBrush="#FF7189CF"/>
+                                    <TextBox x:Name="OBSConttxt" HorizontalAlignment="Stretch" Margin="5,23,5,-0" TextWrapping="Wrap" TabIndex="13" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
                                 </Grid>
                                 <Grid Grid.Column="3">
                                     <Button x:Name="MaisBtn" Content="+" HorizontalAlignment="Stretch" Margin="5,15,0,0" Width="20" Height="20" Background="{DynamicResource cor-bottomAdd}" Foreground="White" BorderBrush="{DynamicResource cor-bottomAdd}" FontFamily="Calibri" FontWeight="ExtraBold" TabIndex="14"/>
@@ -172,11 +174,11 @@
                                 </Grid>
                             </Grid>
                             <Grid Grid.Row="4">
-                                <DataGrid HorizontalAlignment="Stretch" Margin="5,5,5,5">
+                                <DataGrid x:Name="ContatosDataGrid" HorizontalAlignment="Stretch" Margin="5,5,5,5" ItemsSource="{Binding Source={StaticResource ClienteContatosViewSource}}" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="DataGrid_MouseDoubleClick">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Tipo de Contato" Width="150"/>
-                                        <DataGridTextColumn Header="Contato" Width="150"/>
-                                        <DataGridTextColumn Header="Observação" Width="*"/>
+                                        <DataGridTextColumn Header="Tipo de Contato" Width="150" Binding="{Binding Tipo}"/>
+                                        <DataGridTextColumn Header="Contato" Width="150" Binding="{Binding Contato}"/>
+                                        <DataGridTextColumn Header="Observação" Width="*" Binding="{Binding Observacao}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>
@@ -185,13 +187,13 @@
                 </TabItem>
                 <TabItem Name="PesTB" Header="Pesquisa">
                     <Grid>
-                        <DataGrid HorizontalAlignment="Stretch" Margin="5,5,5,5">
+                        <DataGrid x:Name="ClientesDataGrid1" HorizontalAlignment="Stretch" Margin="5,5,5,5" ItemsSource="{Binding Source={StaticResource ExibirClienteViewSource}}" AutoGenerateColumns="False" IsReadOnly="True">>
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="CPF" Width="150"/>
-                                <DataGridTextColumn Header="Nome do Cliente" Width="*"/>
-                                <DataGridTextColumn Header="Endereço" Width="*"/>
-                                <DataGridTextColumn Header="Numero" Width="60"/>
-                                <DataGridTextColumn Header="Contato" Width="150"/>
+                                <DataGridTextColumn Header="CPF" Width="150" Binding="{Binding CPF}"/>
+                                <DataGridTextColumn Header="Nome do Cliente" Width="*" Binding="{Binding Nome}"/>
+                                <DataGridTextColumn Header="Endereço" Width="*" Binding="{Binding Endereco}"/>
+                                    <DataGridTextColumn Header="Numero" Width="60" Binding="{Binding Numero}"/>
+                                <DataGridTextColumn Header="Bairro" Width="150" Binding="{Binding Bairro}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>

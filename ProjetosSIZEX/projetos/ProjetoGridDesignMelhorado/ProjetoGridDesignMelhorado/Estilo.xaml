@@ -5,7 +5,7 @@
 
     <Color x:Key="bg-primary">#abb3b4</Color>
     <Color x:Key="bg-cor-titulo">#547a7d</Color>
-    <Color x:Key="bg-cor-barra">#FF374F51</Color>
+    <Color x:Key="bg-cor-barra">black</Color>
     <Color x:Key="bg-cor-bottomAdd">#FF5DFF00</Color>
     <Color x:Key="bg-cor-bottomLess">Red</Color>
     <Color x:Key="bg-cor-bottomMenu">#FF537A7D</Color>

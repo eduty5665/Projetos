@@ -49,7 +49,7 @@
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
                                 <Label x:Name="PlacaLbl" Content="Placa: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                <TextBox x:Name="Placatxt" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="0" BorderBrush="#FF7189CF" TextAlignment="Right"/>
+                                <TextBox x:Name="Placatxt" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="0" BorderBrush="#FF7189CF" TextAlignment="Right" CharacterCasing="Upper"/>
                             </Grid>
                             <Grid Grid.Column="1">
                                 <Label x:Name="DescLbl" Content="Descrição: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
@@ -58,10 +58,10 @@
                             <Grid Grid.Column="2">
                                 <Label x:Name="CombLbl" Content="Combustivel: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
                                 <ComboBox x:Name="Combcmb" HorizontalAlignment="Stretch" Margin="5,23,-0,0" FontFamily="Calibri" FontSize="14" TabIndex="2" BorderBrush="#FF7189CF">
-                                    <ComboBoxItem Content="Flex"/>
-                                    <ComboBoxItem Content="Etanol"/>
-                                    <ComboBoxItem Content="Gasolina"/>
-                                    <ComboBoxItem Content="Diesel"/>
+                                    <ComboBoxItem Content="FLEX"/>
+                                    <ComboBoxItem Content="ETANOL"/>
+                                    <ComboBoxItem Content="GASOLINA"/>
+                                    <ComboBoxItem Content="DIESEL"/>
                                 </ComboBox>
                             </Grid>
                             <Grid Grid.Column="3">
@@ -95,13 +95,13 @@
                             <Grid Grid.Column="2">
                                 <Label x:Name="TipoCompLbl" Content="Tipo de Pagamento: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
                                 <ComboBox x:Name="TipoCompcmb" HorizontalAlignment="Stretch" Margin="5,23,-0,0" FontFamily="Calibri" FontSize="14" TabIndex="6" BorderBrush="#FF7189CF">
-                                    <ComboBoxItem Content="A vista"/>
-                                    <ComboBoxItem Content="Financiamento"/>
-                                    <ComboBoxItem Content="Credito"/>
+                                    <ComboBoxItem Content="A VISTA"/>
+                                    <ComboBoxItem Content="FINANCIAMENTO"/>
+                                    <ComboBoxItem Content="CREDITO"/>
                                 </ComboBox>
                             </Grid>
                         </Grid>
-                        <Grid Grid.Row="2" Margin="0,5,0,5" Background="{DynamicResource cor-barra}"/>  
+                        <Grid Grid.Row="2" Margin="0,5,0,5" Background="{DynamicResource cor-barra}"/>
                         <Grid Grid.Row="3" Grid.ColumnSpan="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1.5*"/>
@@ -126,18 +126,18 @@
                             </Grid>
                             <Grid Grid.Column="1">
                                 <Label x:Name="KMAbastlbl" Content="KM do Automovel: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                <TextBox x:Name="KMAbasttxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="8" BorderBrush="#FF7189CF" TextAlignment="Right"/>
+                                <TextBox x:Name="KMAbasttxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="8" BorderBrush="#FF7189CF" TextAlignment="Right" CharacterCasing="Upper"/>
                             </Grid>
                             <Grid Grid.Column="2">
                                 <Label x:Name="QtdLitlbl" Content="Litros: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                <TextBox x:Name="QtdLittxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="9" BorderBrush="#FF7189CF" TextAlignment="Right"/>
+                                <TextBox x:Name="QtdLittxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="9" BorderBrush="#FF7189CF" TextAlignment="Right" CharacterCasing="Upper"/>
                             </Grid>
                             <Grid Grid.Column="3">
                                 <Label x:Name="ValorTotlbl" Content="Valor Total: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                <TextBox x:Name="ValorTottxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="10" BorderBrush="#FF7189CF" TextAlignment="Right"/>
+                                <TextBox x:Name="ValorTottxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="10" BorderBrush="#FF7189CF" TextAlignment="Right" CharacterCasing="Upper"/>
                             </Grid>
                             <Grid Grid.Column="4">
-                                <Button x:Name="MaisBtn" Content="+" HorizontalAlignment="Stretch" Margin="5,15,0,0" Width="20" Height="20" Background="{DynamicResource cor-bottomAdd}" Foreground="White" BorderBrush="{DynamicResource cor-bottomAdd}" FontFamily="Calibri" FontWeight="ExtraBold" TabIndex="11"/>
+                                <Button x:Name="MaisBtn" Content="+" HorizontalAlignment="Right" Margin="0,21,0,6" Width="20" Height="20" Background="{DynamicResource cor-bottomAdd}" Foreground="White" BorderBrush="{DynamicResource cor-bottomAdd}" FontFamily="Calibri" FontWeight="ExtraBold" TabIndex="11"/>
                             </Grid>
                             <Grid Grid.Column="5">
                                 <Grid.RowDefinitions>
