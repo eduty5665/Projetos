@@ -1,13 +1,19 @@
 ﻿Class MainWindow 
 
     Private Sub ProdutoMnu_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles ProdutoMnu.MouseLeftButtonDown
-        Dim wdP As New wdCadProduto
-        wdP.ShowDialog()
+        Dim uc As New ucCadProduto
+        Dim tb As New TabItem
+        tb.Content = uc
+        tb.Header = "Produtos"
+        Menutb.Items.Add(tb)
     End Sub
 
     Private Sub ClienteMnu_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles ClienteMnu.MouseLeftButtonDown
-        Dim wdC As New wdCadCliente
-        wdC.ShowDialog()
+        Dim uc As New ucCadCliente
+        Dim tb As New TabItem
+        tb.Content = uc
+        tb.Header = "Clientes"
+        Menutb.Items.Add(tb)
     End Sub
 
     Private Sub VeiculosMnu_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles VeiculosMnu.MouseLeftButtonDown
@@ -15,6 +21,14 @@
         Dim tb As New TabItem
         tb.Content = uc
         tb.Header = "Veículos"
+        Menutb.Items.Add(tb)
+    End Sub
+
+    Private Sub FornMnu_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles FornMnu.MouseLeftButtonDown
+        Dim uc As New ucCadCliente("F")
+        Dim tb As New TabItem
+        tb.Content = uc
+        tb.Header = "Fornecedores"
         Menutb.Items.Add(tb)
     End Sub
 End Class

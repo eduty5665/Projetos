@@ -1,6 +1,6 @@
 ﻿Public Class Abastecimento
-    Public Property DataAbast As Date
-    Public Property KMVeiculo As Integer
-    Public Property Litros As Double
-    Public Property ValorTotal As Double
+    Public Property DataAbast As String
+    Public Property KMVeiculo As String
+    Public Property Litros As String
+    Public Property ValorTotal As String
 End Class

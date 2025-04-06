@@ -11,5 +11,5 @@
 Option Strict Off
 Option Explicit On
 
-<Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagens/miranha-p-danzinhuw.png")> 
+<Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagens/login.png")> 
 

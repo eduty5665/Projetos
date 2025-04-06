@@ -7,8 +7,9 @@
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="80*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
+        <Grid Grid.Column="0" Background="#e5e8b6">
             <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="35"/>
@@ -17,15 +18,20 @@
                 <Label Name="ProdutoMnu" Content="Cadastro de Produtos" Foreground="White" FontWeight="ExtraBold" FontFamily="Calibri" FontSize="16" Cursor="Hand" />
             </Grid>
             <Grid Grid.Row="1" Background="{DynamicResource cor-bottomMenu}">
-                <Label Name="ClienteMnu" Content="Cadastro de Clientes" Foreground="White" FontWeight="ExtraBold" FontFamily="Calibri" FontSize="16" Cursor="Hand" />
+                <Label Name="ClienteMnu" Content="Cadastro de Clientes" Foreground="White" FontWeight="ExtraBold" FontFamily="Calibri" FontSize="16" Cursor="Hand" TabIndex="2147483640" />
             </Grid>
             <Grid Grid.Row="2" Background="{DynamicResource cor-bottomMenu}">
                 <Label Name="VeiculosMnu" Content="Cadastro de Veiculos" Foreground="White" FontWeight="ExtraBold" FontFamily="Calibri" FontSize="16" Cursor="Hand" />
             </Grid>
+            <Grid Grid.Row="3" Background="{DynamicResource cor-bottomMenu}">
+                <Label Name="FornMnu" Content="Cadastro de Fornecedores" Foreground="White" FontWeight="ExtraBold" FontFamily="Calibri" FontSize="16" Cursor="Hand" />
+            </Grid>
         </Grid>
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1">        
             <TabControl Name="Menutb">
-                
+                <TabControl.Background>
+                    <ImageBrush ImageSource="/ProjetoGridDesignMelhorado;component/Imagens/LOGIN.png" Stretch="Fill"/>
+                </TabControl.Background>
             </TabControl>
         </Grid>
     </Grid>

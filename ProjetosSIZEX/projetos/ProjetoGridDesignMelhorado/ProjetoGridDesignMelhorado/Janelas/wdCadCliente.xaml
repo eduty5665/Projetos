@@ -1,7 +1,7 @@
 ﻿<Window x:Class="wdCadCliente"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Cadastro de Produtos" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded_1">
+    Title="Cadastro de Produtos" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded_1" KeyDown="Window_KeyDown">
     <Window.Resources>
         <Color x:Key="BlueSizex">#FF537A7D</Color>
         <CollectionViewSource x:Key="ClienteContatosViewSource" Source="{Binding ClienteContatos}"/>
@@ -174,7 +174,7 @@
                                 </Grid>
                             </Grid>
                             <Grid Grid.Row="4">
-                                <DataGrid x:Name="ContatosDataGrid" HorizontalAlignment="Stretch" Margin="5,5,5,5" ItemsSource="{Binding Source={StaticResource ClienteContatosViewSource}}" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="DataGrid_MouseDoubleClick">
+                                <DataGrid x:Name="ContatosDataGrid" HorizontalAlignment="Stretch" Margin="0,0,10,10" ItemsSource="{Binding Source={StaticResource ClienteContatosViewSource}}" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="DataGrid_MouseDoubleClick">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Tipo de Contato" Width="150" Binding="{Binding Tipo}"/>
                                         <DataGridTextColumn Header="Contato" Width="150" Binding="{Binding Contato}"/>
@@ -205,12 +205,20 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="90"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <Button x:Name="SalvarBtn" Content="Salvar [F2]" HorizontalAlignment="Stretch" Margin="0,5,5,5"  FontSize="14" FontFamily="Calibri" FontWeight="SemiBold" Background="White" BorderBrush="White" TabIndex="16"/>
+                    <Button x:Name="NovoBtn" Content="Novo [F2]" HorizontalAlignment="Stretch" Margin="0,5,5,5"  FontSize="14" FontFamily="Calibri" FontWeight="SemiBold" Background="White" BorderBrush="White" TabIndex="16"/>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <Button x:Name="ExcluirBtn" Content="Excluir [F3]" HorizontalAlignment="Stretch" Margin="0,5,5,5" FontSize="14" FontFamily="Calibri" FontWeight="SemiBold" Background="White" BorderBrush="White" TabIndex="17"/>
+                    <Button x:Name="SalvarBtn" Content="Salvar [F3]" HorizontalAlignment="Stretch" Margin="0,5,5,5"  FontSize="14" FontFamily="Calibri" FontWeight="SemiBold" Background="White" BorderBrush="White" TabIndex="16"/>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Button x:Name="ExcluirBtn" Content="Excluir [F4]" HorizontalAlignment="Stretch" Margin="0,5,5,5" FontSize="14" FontFamily="Calibri" FontWeight="SemiBold" Background="White" BorderBrush="White" TabIndex="17"/>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <Button x:Name="SairBtn" Content="Sair [ESC]" HorizontalAlignment="Stretch" Margin="0,5,5,5" FontSize="14" FontFamily="Calibri" FontWeight="SemiBold" Background="White" BorderBrush="White" TabIndex="17"/>
                 </Grid>
             </Grid>
         </Grid>
