@@ -6,7 +6,23 @@ ProjetoGridDesignMelhorado
 </name>
 </assembly>
 <members>
-<member name="M:ProjetoGridDesignMelhorado.wdCadCliente.InitializeComponent">
+<member name="M:ProjetoGridDesignMelhorado.wdLogin.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:ProjetoGridDesignMelhorado.wdLogin">
+	<summary>
+wdLogin
+</summary>
+</member><member name="M:ProjetoGridDesignMelhorado.ucCadFoto.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:ProjetoGridDesignMelhorado.ucCadFoto">
+	<summary>
+ucCadFoto
+</summary>
+</member><member name="M:ProjetoGridDesignMelhorado.wdCadCliente.InitializeComponent">
 	<summary>
 InitializeComponent
 </summary>
@@ -14,13 +30,29 @@ InitializeComponent
 	<summary>
 wdCadCliente
 </summary>
-</member><member name="M:ProjetoGridDesignMelhorado.wdLogin.InitializeComponent">
+</member><member name="M:ProjetoGridDesignMelhorado.ucCadAutomovel.InitializeComponent">
 	<summary>
 InitializeComponent
 </summary>
-</member><member name="T:ProjetoGridDesignMelhorado.wdLogin">
+</member><member name="T:ProjetoGridDesignMelhorado.ucCadAutomovel">
 	<summary>
-wdLogin
+ucCadAutomovel
+</summary>
+</member><member name="M:ProjetoGridDesignMelhorado.ucCadCliente.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:ProjetoGridDesignMelhorado.ucCadCliente">
+	<summary>
+ucCadCliente
+</summary>
+</member><member name="M:ProjetoGridDesignMelhorado.MainWindow.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:ProjetoGridDesignMelhorado.MainWindow">
+	<summary>
+MainWindow
 </summary>
 </member><member name="M:ProjetoGridDesignMelhorado.Application.InitializeComponent">
 	<summary>
@@ -34,14 +66,6 @@ Application Entry Point.
 	<summary>
 Application
 </summary>
-</member><member name="M:ProjetoGridDesignMelhorado.ucCadCliente.InitializeComponent">
-	<summary>
-InitializeComponent
-</summary>
-</member><member name="T:ProjetoGridDesignMelhorado.ucCadCliente">
-	<summary>
-ucCadCliente
-</summary>
 </member><member name="M:ProjetoGridDesignMelhorado.wdCadProduto.InitializeComponent">
 	<summary>
 InitializeComponent
@@ -49,30 +73,6 @@ InitializeComponent
 </member><member name="T:ProjetoGridDesignMelhorado.wdCadProduto">
 	<summary>
 wdCadProduto
-</summary>
-</member><member name="M:ProjetoGridDesignMelhorado.ucCadAutomovel.InitializeComponent">
-	<summary>
-InitializeComponent
-</summary>
-</member><member name="T:ProjetoGridDesignMelhorado.ucCadAutomovel">
-	<summary>
-ucCadAutomovel
-</summary>
-</member><member name="M:ProjetoGridDesignMelhorado.ucCadFoto.InitializeComponent">
-	<summary>
-InitializeComponent
-</summary>
-</member><member name="T:ProjetoGridDesignMelhorado.ucCadFoto">
-	<summary>
-ucCadFoto
-</summary>
-</member><member name="M:ProjetoGridDesignMelhorado.MainWindow.InitializeComponent">
-	<summary>
-InitializeComponent
-</summary>
-</member><member name="T:ProjetoGridDesignMelhorado.MainWindow">
-	<summary>
-MainWindow
 </summary>
 </member><member name="M:ProjetoGridDesignMelhorado.ucCadProduto.InitializeComponent">
 	<summary>

@@ -14,5 +14,4 @@
     Public Property Usuario As String
     Public Property DataGravacao As DateTime
     Public Property Contatos As List(Of ClienteContatos)
-    Public Property lstClientes As List(Of Cliente)
 End Class

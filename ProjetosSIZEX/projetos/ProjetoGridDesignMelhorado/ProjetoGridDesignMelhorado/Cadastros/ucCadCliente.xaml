@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctTextBox="clr-namespace:ctTextBox;assembly=ctTextBox" 
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="600">
+             d:DesignHeight="600" d:DesignWidth="600" Loaded="UserControl_Loaded" Tag="Clientes">
     <UserControl.Resources>
         <CollectionViewSource x:Key="ClienteContatosViewSource" Source="{Binding ClienteContatos}"/>
         <CollectionViewSource x:Key="ExibirClienteViewSource" Source="{Binding Cliente}"/>
@@ -44,19 +45,19 @@
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
-                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="auto"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0" Grid.ColumnSpan="2">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
                                     <Label x:Name="CPFLbl" Content="CPF: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                    <TextBox x:Name="CPFtxt" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="1" BorderBrush="#FF7189CF" TextAlignment="Right" CharacterCasing="Upper"/>
+                                    <TextBox x:Name="CPFtxt" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="1" BorderBrush="#FF7189CF" TextAlignment="Right" CharacterCasing="Upper" Height="20"/>
                                 </Grid>
                                 <Grid Grid.Column="1">
                                     <Label x:Name="RGLbl" Content="RG: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
@@ -73,7 +74,7 @@
                             <Grid Grid.Row="1" Grid.ColumnSpan="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="100*"/>
-                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="60"/>
                                     <ColumnDefinition Width="50*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
@@ -81,8 +82,8 @@
                                     <TextBox x:Name="Endtxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="4" CharacterCasing="Upper" BorderBrush="#FF7189CF"/>
                                 </Grid>
                                 <Grid Grid.Column="1">
-                                    <Label x:Name="NumEndlbl" Content="Numero: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                    <TextBox x:Name="NumEndtxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="5" CharacterCasing="Upper" BorderBrush="#FF7189CF" TextAlignment="Right"/>
+                                    <Label x:Name="NumEndlbl" Content="Num: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
+                                    <TextBox x:Name="NumEndtxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="5" CharacterCasing="Upper" BorderBrush="#FF7189CF" TextAlignment="Right" Height="20"/>
                                 </Grid>
                                 <Grid Grid.Column="2">
                                     <Label x:Name="BairroEndlbl" Content="Bairro: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14" Height="41" VerticalAlignment="Top"/>
@@ -93,7 +94,7 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="100*"/>
                                     <ColumnDefinition Width="30*"/>
-                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="80"/>
                                     <ColumnDefinition Width="100*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
@@ -102,7 +103,7 @@
                                 </Grid>
                                 <Grid Grid.Column="1">
                                     <Label x:Name="EstEndlbl" Content="Estado: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                    <ComboBox x:Name="EstEndcmb" HorizontalAlignment="Stretch" Margin="5,23,-0,0" FontFamily="Calibri" FontSize="14" TabIndex="8" BorderBrush="#FF7189CF">
+                                    <ComboBox x:Name="EstEndcmb" HorizontalAlignment="Stretch" Margin="5,23,-0,0" FontFamily="Calibri" FontSize="14" TabIndex="8" BorderBrush="#FF7189CF" Height="20">
                                         <ComboBoxItem Content="AC"/>
                                         <ComboBoxItem Content="AL"/>
                                         <ComboBoxItem Content="AP"/>
@@ -150,7 +151,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
                                     <Label x:Name="TipoContlbl" Content="Tipo: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                    <ComboBox x:Name="TipoContcmb" HorizontalAlignment="Stretch" Margin="5,23,-0,0" FontFamily="Calibri" FontSize="14" TabIndex="11" BorderBrush="#FF7189CF">
+                                    <ComboBox x:Name="TipoContcmb" HorizontalAlignment="Stretch" Margin="5,23,-0,0" FontFamily="Calibri" TabIndex="11" BorderBrush="#FF7189CF" Height="20">
                                         <ComboBoxItem Content="EMAIL"/>
                                         <ComboBoxItem Content="CELULAR"/>
                                         <ComboBoxItem Content="TELEFONE"/>
@@ -158,11 +159,12 @@
                                 </Grid>
                                 <Grid Grid.Column="1">
                                     <Label x:Name="Contatolbl" Content="Contato: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                    <TextBox x:Name="Contatotxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="12" CharacterCasing="Upper" BorderBrush="#FF7189CF"/>
+                                    <TextBox x:Name="Contatotxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="12" CharacterCasing="Upper" BorderBrush="#FF7189CF" />
+                                    <!--<ctTextBox:ctAutoComplete x:Name="Contat" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="12" CharacterCasing="Upper" BorderBrush="#FF7189CF"/>-->
                                 </Grid>
                                 <Grid Grid.Column="2">
                                     <Label x:Name="OBSContlbl" Content="Observação: " HorizontalAlignment="Stretch" Margin="0,0,0,-0" Grid.Row="0" FontWeight="Bold" FontFamily="Calibri" FontSize="14"/>
-                                    <TextBox x:Name="OBSConttxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="13" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
+                                    <TextBox x:Name="OBSConttxt" HorizontalAlignment="Stretch" Margin="5,23,0,-0" TextWrapping="Wrap" TabIndex="13" BorderBrush="#FF7189CF" CharacterCasing="Upper" />
                                 </Grid>
                                 <Grid Grid.Column="3">
                                     <Button x:Name="MaisBtn" Content="+" HorizontalAlignment="Stretch" Margin="5,23,0,0" Width="20" Height="20" Background="{DynamicResource cor-bottomAdd}" Foreground="White" BorderBrush="{DynamicResource cor-bottomAdd}" FontFamily="Calibri" FontWeight="ExtraBold" TabIndex="14"/>
@@ -198,7 +200,8 @@
                             <TextBox x:Name="PesTxt" HorizontalAlignment="Stretch" Margin="5,20,5,0" TextWrapping="Wrap" TabIndex="13" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <DataGrid x:Name="ClientesDataGrid1" HorizontalAlignment="Stretch" Margin="5,5,5,5" ItemsSource="{Binding Source={StaticResource ExibirClienteViewSource}}" AutoGenerateColumns="False" IsReadOnly="True">>
+                            <!--<DataGrid x:Name="ClientesDataGrid1" HorizontalAlignment="Stretch" Margin="5,5,5,5" AutoGenerateColumns="False" IsReadOnly="True">>-->
+                            <DataGrid x:Name="ClientesDataGrid1" HorizontalAlignment="Stretch" Margin="5,5,5,5" ItemsSource="{Binding Source={StaticResource ExibirClienteViewSource}}" AutoGenerateColumns="False" IsReadOnly="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="CPFPes" Header="CPF" Width="150" Binding="{Binding CPF}"/>
                                     <DataGridTextColumn x:Name="NomePes" Header="Nome do Cliente" Width="*" Binding="{Binding Nome}"/>

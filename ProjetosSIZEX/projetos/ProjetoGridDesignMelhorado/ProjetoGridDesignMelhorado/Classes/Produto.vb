@@ -10,5 +10,4 @@
     Public Property Preco As String
     Public Property Status As String
     Public Property ExibirProd As List(Of ExibirProd)
-    Public Property ListarProd As List(Of ListarProd)
 End Class

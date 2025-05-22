@@ -4,6 +4,7 @@
     Dim srcCliente As CollectionViewSource
     Dim objContato As ClienteContatos
     Dim Verificar As Boolean
+    Dim lstClientes As List(Of Cliente)
 
 #Region "Construtores - SUB"
     Public Sub New()
@@ -200,12 +201,12 @@
             End If
 
             retorno = "Criação de Lista"
-            If objCliente.lstClientes Is Nothing Then
-                objCliente.lstClientes = New List(Of Cliente)
+            If lstClientes Is Nothing Then
+                lstClientes = New List(Of Cliente)
             End If
-            objCliente.lstClientes.Add(objCliente)
+            lstClientes.Add(objCliente)
             srcContatos.Source = Nothing
-            srcCliente.Source = objCliente.lstClientes.ToList
+            srcCliente.Source = lstClientes.ToList
 
             Dim msgSucessCli As String = "Cliente salvo com sucesso! " & vbNewLine & "Total de Registros: " & objCliente.Contatos.Count
             MsgBox(msgSucessCli, MsgBoxStyle.Information, "Gravação de Clientes")

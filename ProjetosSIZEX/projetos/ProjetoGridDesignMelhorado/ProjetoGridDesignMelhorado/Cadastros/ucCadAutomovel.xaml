@@ -2,9 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctTextBox="clr-namespace:ctTextBox;assembly=ctTextBox"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="600">
+             d:DesignHeight="600" d:DesignWidth="600" Tag="Veiculos">
     <UserControl.Resources>
         <CollectionViewSource x:Key="VeiculosViewSource" Source="{Binding Veiculos}"/>
         <CollectionViewSource x:Key="AbastecimentoViewSource" Source="{Binding Abastecimento}"/>
@@ -142,16 +143,12 @@
                             <Grid Grid.Column="4">
                                 <Button x:Name="MaisBtn" Content="+" HorizontalAlignment="Right" Margin="0,23,5,0" Width="20" Height="20" Background="{DynamicResource cor-bottomAdd}" Foreground="White" BorderBrush="{DynamicResource cor-bottomAdd}" FontFamily="Calibri" FontWeight="ExtraBold" TabIndex="11"/>
                             </Grid>
-                            <Grid Grid.Column="5">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="4*"/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Button x:Name="MenosBtn" Content="-" HorizontalAlignment="Stretch" Margin="0,23,5,0" Width="20" Height="20" RenderTransformOrigin="0.25,2.2" Background="{DynamicResource cor-bottomLess}" Foreground="White" BorderBrush="{DynamicResource cor-bottomLess}" FontWeight="ExtraBold" FontFamily="Calibri" Grid.RowSpan="2" TabIndex="12"/>
+                            <Grid Grid.Column="5">                               
+                                <Button x:Name="MenosBtn" Content="-" HorizontalAlignment="Stretch" Margin="0,23,5,0" Width="20" Height="20" Background="{DynamicResource cor-bottomLess}" Foreground="White" BorderBrush="{DynamicResource cor-bottomLess}" FontWeight="ExtraBold" FontFamily="Calibri" TabIndex="12"/>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="4">
-                            <DataGrid ItemsSource="{Binding Source={StaticResource AbastecimentoViewSource}}" HorizontalAlignment="Stretch" Margin="5,5,5,5">
+                            <DataGrid ItemsSource="{Binding Source={StaticResource AbastecimentoViewSource}}" HorizontalAlignment="Stretch" Margin="5,5,5,5" AutoGenerateColumns="False" IsReadOnly="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Data do Abastecimento" Width="*" Binding="{Binding DataAbast}"/>
                                     <DataGridTextColumn Header="Km do Automovel" Width="*" Binding="{Binding KMVeiculo}"/>
@@ -169,11 +166,11 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <Label x:Name="PesLbl" Content="Pesquisa: (Descrição)" HorizontalAlignment="Stretch" Margin="0,0,5,0" Grid.Row="0" FontFamily="Calibri" FontSize="14"/>
+                            <Label x:Name="PesLbl" Content="Pesquisa (Descrição):" HorizontalAlignment="Stretch" Margin="0,0,5,0" Grid.Row="0" FontFamily="Calibri" FontSize="14"/>
                             <TextBox x:Name="PesTxt" HorizontalAlignment="Stretch" Margin="5,20,5,0" TextWrapping="Wrap" TabIndex="13" BorderBrush="#FF7189CF" CharacterCasing="Upper"/>
                         </Grid>
                         <Grid Grid.Row="1">
-                        <DataGrid x:Name="VeiculosDataGrid1" HorizontalAlignment="Stretch" Margin="5,5,5,5" ItemsSource="{Binding Source={StaticResource VeiculosViewSource}}" AutoGenerateColumns="False" IsReadOnly="True">>
+                        <DataGrid x:Name="VeiculosDataGrid1" HorizontalAlignment="Stretch" Margin="5,5,5,5" ItemsSource="{Binding Source={StaticResource VeiculosViewSource}}" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Placa" Width="100" Binding="{Binding Placa}"/>
                                 <DataGridTextColumn Header="Descrição" Width="*" Binding="{Binding Descricao}"/>

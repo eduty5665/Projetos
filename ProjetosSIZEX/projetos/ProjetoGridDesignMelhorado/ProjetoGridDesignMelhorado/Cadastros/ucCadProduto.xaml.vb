@@ -1,9 +1,7 @@
 ﻿Public Class ucCadProduto
     Dim objProduto As New Produto
     Dim srcProdutos As CollectionViewSource
-    Dim psqProdutos As CollectionViewSource
     Dim objExibe As ExibirProd
-    Dim lstProd As ListarProd
 
 #Region "Construtores - SUB"
     Public Sub New()
@@ -58,8 +56,6 @@
 
         If objProduto Is Nothing Then
             objProduto = New Produto
-            objProduto.ExibirProd = New List(Of ExibirProd)
-            objProduto.ListarProd = New List(Of ListarProd)
         End If
 
         objProduto.Codigo = CInt(Codigotxt.Text)
@@ -77,9 +73,6 @@
 #End Region
 
 #Region "Eventos Buttons - SUB"
-    'Private Sub SairBtn_Click(sender As Object, e As RoutedEventArgs) Handles SairBtn.Click
-    '    Me.Close()
-    'End Sub
 
     Private Sub SalvarBtn_Click(sender As Object, e As RoutedEventArgs) Handles SalvarBtn.Click
 
@@ -92,31 +85,17 @@
         Dim objExibe As New ExibirProd
         objExibe.Codigo = CInt(Codigotxt.Text)
         objExibe.Descricao = UCase(Desctxt.Text)
+        objExibe.Tipo = UCase(Tipocmb.Text)
         objExibe.Grupo = UCase(Grupotxt.Text)
         objExibe.Custo = CDbl(Custotxt.Text)
         objExibe.Preco = CDbl(Precotxt.Text)
-
-        Dim lstProd As New ListarProd
-        lstProd.Codigo = CInt(Codigotxt.Text)
-        lstProd.Descricao = UCase(Desctxt.Text)
-        lstProd.Tipo = UCase(Tipocmb.Text)
-        lstProd.Grupo = UCase(Grupotxt.Text)
-        lstProd.Custo = CDbl(Custotxt.Text)
-        lstProd.Preco = CDbl(Precotxt.Text)
 
         If objProduto.ExibirProd Is Nothing Then
             objProduto.ExibirProd = New List(Of ExibirProd)
         End If
 
-        If objProduto.ListarProd Is Nothing Then
-            objProduto.ListarProd = New List(Of ListarProd)
-        End If
-
         objProduto.ExibirProd.Add(objExibe)
-        objProduto.ListarProd.Add(lstProd)
-
         srcProdutos.Source = objProduto.ExibirProd.ToList
-        psqProdutos.Source = objProduto.ListarProd.ToList
 
         LimpaCamposProduto()
     End Sub
@@ -172,8 +151,8 @@
                 ElseIf PesLbl.Content = "Pesquisa (Preço):" Then
                     PesLbl.Content = "Pesquisa (Descrição):"
                 End If
-                'Case Key.Escape
-                '    SairBtn_Click(Nothing, Nothing)
+            Case Key.Escape
+                SairBtn_Click(Nothing, Nothing)
         End Select
     End Sub
 
@@ -181,9 +160,9 @@
         If Custotxt.Text And Precotxt.Text IsNot Nothing Then
             If IsNumeric(Custotxt.Text And Precotxt.Text) Then
                 Margemtxt.Text = CFG.FormataMargem(CDbl(Custotxt.Text), CDbl(Precotxt.Text))
+            Else
+                MsgBox("Erro! Necessita adicionar valor de custo e valor de preco.")
             End If
-        Else
-            MsgBox("Erro! Necessita adicionar valor de custo e valor de preco.")
         End If
     End Sub
 
@@ -191,29 +170,28 @@
         If Custotxt.Text And Margemtxt.Text IsNot Nothing Then
             If IsNumeric(Custotxt.Text And Margemtxt.Text) Then
                 Precotxt.Text = CFG.FormataPreco(CDbl(Custotxt.Text), CDbl(Margemtxt.Text))
+            Else
+                MsgBox("Erro! Necessita adicionar valor de custo e margem de lucro.")
             End If
-        Else
-            MsgBox("Erro! Necessita adicionar valor de custo e margem de lucro.")
         End If
     End Sub
 
     Private Sub Custotxt_LostFocus(sender As Object, e As RoutedEventArgs) Handles Custotxt.LostFocus
         Custotxt.Text = Math.Round(CDbl(Custotxt.Text), 2)
     End Sub
-#End Region
 
     Private Sub PesTxt_TextChanged(sender As Object, e As TextChangedEventArgs) Handles PesTxt.TextChanged
-        If objProduto.ListarProd.Count > 0 Then
+        If objProduto.ExibirProd.Count > 0 Then
             If PesLbl.Content = "Pesquisa (Descrição):" Then
-                srcProdutos.Source = objProduto.ListarProd.Where(Function(p) p.Descricao.Contains(PesTxt.Text)).ToList
+                srcProdutos.Source = objProduto.ExibirProd.Where(Function(p) p.Descricao.Contains(PesTxt.Text)).ToList
             ElseIf PesLbl.Content = "Pesquisa (Codigo):" Then
-                srcProdutos.Source = objProduto.ListarProd.Where(Function(p) p.Codigo.Contains(PesTxt.Text)).ToList
+                srcProdutos.Source = objProduto.ExibirProd.Where(Function(p) p.Codigo.Contains(PesTxt.Text)).ToList
             ElseIf PesLbl.Content = "Pesquisa (Grupo):" Then
-                srcProdutos.Source = objProduto.ListarProd.Where(Function(p) p.Grupo.Contains(PesTxt.Text)).ToList
+                srcProdutos.Source = objProduto.ExibirProd.Where(Function(p) p.Grupo.Contains(PesTxt.Text)).ToList
             ElseIf PesLbl.Content = "Pesquisa (Tipo):" Then
-                srcProdutos.Source = objProduto.ListarProd.Where(Function(p) p.Tipo.Contains(PesTxt.Text)).ToList
+                srcProdutos.Source = objProduto.ExibirProd.Where(Function(p) p.Tipo.Contains(PesTxt.Text)).ToList
             ElseIf PesLbl.Content = "Pesquisa (Preço):" Then
-                srcProdutos.Source = objProduto.ListarProd.Where(Function(p) p.Preco.Contains(PesTxt.Text)).ToList
+                srcProdutos.Source = objProduto.ExibirProd.Where(Function(p) p.Preco.Contains(PesTxt.Text)).ToList
             Else
                 MsgBox("Nenhum cadastro realizado, por favor verificar.", MsgBoxStyle.Information, "Erro Cadastro")
 
@@ -221,8 +199,28 @@
         End If
     End Sub
 
+    Private Sub SairBtn_Click(sender As Object, e As RoutedEventArgs) Handles SairBtn.Click
+        CFG.DestroiTela(Me)
+    End Sub
+
+    Private Sub PesLbl_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles PesLbl.MouseDoubleClick
+        If PesLbl.Content = "Pesquisa (Descrição):" Then
+            PesLbl.Content = "Pesquisa (Codigo):"
+        ElseIf PesLbl.Content = "Pesquisa (Codigo):" Then
+            PesLbl.Content = "Pesquisa (Grupo):"
+        ElseIf PesLbl.Content = "Pesquisa (Grupo):" Then
+            PesLbl.Content = "Pesquisa (Tipo):"
+        ElseIf PesLbl.Content = "Pesquisa (Tipo):" Then
+            PesLbl.Content = "Pesquisa (Preço):"
+        ElseIf PesLbl.Content = "Pesquisa (Preço):" Then
+            PesLbl.Content = "Pesquisa (Descrição):"
+        End If
+    End Sub
+
+#End Region
+
 #Region "Chamada de Tela - SUB"
-    Private Sub wdCadProduto(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+    Private Sub ucCadProduto(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         srcProdutos = CType(Me.FindResource("ProdutosViewSource"), CollectionViewSource)
         Datatxt.Text = Date.Now
         Codigotxt.Text = 1

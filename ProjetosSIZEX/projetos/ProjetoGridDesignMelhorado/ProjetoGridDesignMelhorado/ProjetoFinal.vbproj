@@ -50,7 +50,7 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="ctTextBox">
-      <HintPath>..\..\..\Sizex\ct-text-box\ctTextBox.dll</HintPath>
+      <HintPath>..\..\..\exercícios\TesteTitulo-54\ct-text-box\bin\Debug\ctTextBox.dll</HintPath>
     </Reference>
     <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="ReachFramework" />
@@ -99,7 +99,6 @@
     <Compile Include="Classes\Cliente.vb" />
     <Compile Include="Classes\ClienteContatos.vb" />
     <Compile Include="Classes\ExibirProd.vb" />
-    <Compile Include="Classes\ListarProd.vb" />
     <Compile Include="Classes\Produto.vb" />
     <Compile Include="Classes\Veiculos.vb" />
     <Compile Include="Janelas\wdCadCliente.xaml.vb">
